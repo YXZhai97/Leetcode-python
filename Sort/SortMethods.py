@@ -88,9 +88,6 @@ print(mergeSort(array) )
 
 
 
-
-
-
 #4. 快速排序
 
 
