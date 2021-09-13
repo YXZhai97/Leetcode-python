@@ -10,7 +10,7 @@ Created on Mon Sep 13 20:32:49 2021
 while True:
     try:
         m = int(input())
-        tmp = list(map(int,input().split(' ')))
+        tmp = list(map(int,input().split(' '))) #单行输入存储在list里
         tmp2 = set(tmp)
         tmp3 = list(tmp2)
         tmp3.sort()
