@@ -44,6 +44,8 @@ class Point():
         return math.sqrt(self.x ** 2 + self.y ** 2)
 
 
+
+
 p1 = Point(3, 4)
 p2 = Point(3, 2)
 p3 = Point(1, 3)
