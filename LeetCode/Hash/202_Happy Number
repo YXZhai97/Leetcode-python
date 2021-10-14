@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct 14 21:13:30 2021
+
+@author: yixing
+"""
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        if n==0:
+            return False 
+        
+        l=[]
+        
+        def appart(n):
+            while n>0:
+                pop=n%10
+                l.append(pop)
+                n=n//10
+        seen=set()
+        appart(n)
+        
+        while sum(l)!=1:
+            nsum=0
+            for i in l:
+                nsum+=i**2
+            if nsum not in seen:
+                seen.add(nsum)
+                l=[]
+                appart(nsum)
+            else:
+                return False 
+            
+        return True 
+            
