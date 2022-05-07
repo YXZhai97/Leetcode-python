@@ -1,0 +1,38 @@
+import time
+
+import blog_spider
+import threading
+
+def single_thread():
+    print("single thread starts")
+    for url in blog_spider.urls:
+        blog_spider.craw(url)
+    print("single thread ends")
+
+def multi_thread():
+    print("multi-thread starts")
+    threads=[]
+    for url in blog_spider.urls:
+        threads.append(
+            threading.Thread(target=blog_spider.craw, args=(url,))
+        )
+    for thread in threads:
+        thread.start()
+
+    for thread in threads:
+        thread.join()
+
+    print("multi-thread ends")
+
+
+if __name__=="__main__":
+    start=time.time()
+    single_thread()
+    end=time.time()
+    print("single thread cost", end-start,"seconds.")
+
+    start = time.time()
+    multi_thread()
+    end = time.time()
+    print("multi thread cost", end - start, "seconds.")
+
